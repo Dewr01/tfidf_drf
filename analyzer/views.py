@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer
 from django.shortcuts import render
-from .utils import calculate_tf, calculate_idf
+from .logic import calculate_tf, calculate_idf
 
 DEFAULT_TEXT = [
     "TF-IDF (от англ. TF — term frequency, IDF — inverse document frequency) — статистическая мера,",
