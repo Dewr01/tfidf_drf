@@ -1,82 +1,66 @@
-from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer
-from django.shortcuts import render
-from .logic import calculate_tf, calculate_idf
-
-DEFAULT_TEXT = [
-    "TF-IDF (от англ. TF — term frequency, IDF — inverse document frequency) — статистическая мера,",
-    "используемая для оценки важности слова в контексте документа, ",
-    "являющегося частью коллекции документов или корпуса."
-]
+from .models import Document, AnalysisResult
+from .serializers import DocumentSerializer, AnalysisResultSerializer
+from .utils import calculate_tf, calculate_idf
+import chardet
 
 
-class TFIDFAnalyzerView(APIView):
-    parser_classes = [MultiPartParser, FormParser]
-    renderer_classes = [TemplateHTMLRenderer, JSONRenderer]
-    template_name = 'analyzer/upload_form.html'
+class DocumentViewSet(ModelViewSet):
+    queryset = Document.objects.all()
+    serializer_class = DocumentSerializer
 
-    def get(self, request):
-        """Отображает форму загрузки файла"""
-        return render(request, self.template_name, {'title': 'TF-IDF Analyzer'})
-
-    def post(self, request):
-        """Обрабатывает загруженный файл и возвращает результаты"""
-        if 'file' not in request.FILES:
-            return render(
-                request,
-                self.template_name,
-                {'error': 'Файл не загружен', 'title': 'Ошибка'},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+    @action(detail=False, methods=['post'])
+    def analyze(self, request):
+        file = request.FILES.get('file')
+        if not file:
+            return Response({'error': 'No file provided'}, status=400)
 
         try:
-            file = request.FILES['file']
+            # Определение кодировки
+            raw_content = file.read()
+            encoding = chardet.detect(raw_content)['encoding'] or 'utf-8'
+            content = raw_content.decode(encoding)
 
-            # Проверка типа файла
-            if not file.name.endswith('.txt'):
-                raise ValueError("Поддерживаются только .txt файлы")
-
-            # Чтение и обработка файла
-            text = file.read().decode('utf-8')
-
-            # Вычисление TF и IDF
-            tf = calculate_tf(text)
-            idf = calculate_idf(text, DEFAULT_TEXT)
-
-            # Формирование результатов
-            results = [
-                {"word": word, "tf": tf[word], "idf": idf.get(word, 0)}
-                for word in tf
-            ]
-
-            # Сортировка и выбор топ-50
-            results.sort(key=lambda x: x["idf"], reverse=True)
-            top_50 = results[:50]
-
-            return render(
-                request,
-                self.template_name,
-                {
-                    'title': 'Результаты анализа',
-                    'results': top_50,
-                    'filename': file.name,
-                    'success': True
-                }
+            # Создание документа
+            document = Document.objects.create(
+                title=request.data.get('title', file.name),
+                content=content
             )
 
-        except UnicodeDecodeError:
-            error = "Ошибка декодирования файла. Убедитесь, что файл в кодировке UTF-8"
-        except ValueError as e:
-            error = str(e)
-        except Exception as e:
-            error = f"Произошла ошибка: {str(e)}"
+            # Анализ TF-IDF
+            corpus = self.load_corpus()
+            tf = calculate_tf(content)
+            idf = calculate_idf(content, corpus)
 
-        return render(
-            request,
-            self.template_name,
-            {'error': error, 'title': 'Ошибка'},
-            status=status.HTTP_400_BAD_REQUEST
-        )
+            # Сохранение результатов
+            AnalysisResult.objects.bulk_create([
+                AnalysisResult(
+                    document=document,
+                    word=word,
+                    tf=tf_val,
+                    idf=idf.get(word, 0)
+                ) for word, tf_val in tf.items()
+            ])
+
+            # Получение топ-50 результатов
+            results = AnalysisResult.objects.filter(document=document).order_by('-idf')[:50]
+            serializer = AnalysisResultSerializer(results, many=True)
+
+            return Response({
+                'document': DocumentSerializer(document).data,
+                'results': serializer.data
+            })
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=400)
+
+    def load_corpus(self):
+        # Здесь должна быть реализация загрузки корпуса
+        # Временный пример:
+        return [
+            "TF-IDF (от англ. TF — term frequency, IDF — inverse document frequency) — статистическая мера,",
+            "используемая для оценки важности слова в контексте документа, ",
+            "являющегося частью коллекции документов или корпуса."
+        ]

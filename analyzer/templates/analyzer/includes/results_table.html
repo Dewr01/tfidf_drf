@@ -1,0 +1,25 @@
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <h3 class="card-title">Результаты анализа: <span id="documentTitle"></span></h3>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Слово</th>
+                        <th>TF</th>
+                        <th>IDF</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <!-- Данные будут добавлены через JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-secondary mt-3" onclick="location.reload()">
+            Загрузить новый файл
+        </button>
+    </div>
+</div>

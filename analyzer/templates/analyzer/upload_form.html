@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Загрузка файла</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="title" class="form-label">Название документа</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Текстовый файл</label>
+                    <input class="form-control" type="file" id="file" name="file" accept=".txt" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Анализировать</button>
+            </form>
+            <div id="results" class="mt-4"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
