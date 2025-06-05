@@ -9,3 +9,5 @@
 # IntellijIdea files
 *.iml
 .idea
+*.sqlite3
+*env
