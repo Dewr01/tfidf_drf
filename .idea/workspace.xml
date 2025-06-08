@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a659a76-ad6a-41c2-b877-0312a449cdf7" name="Changes" comment="v1.3">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="3a659a76-ad6a-41c2-b877-0312a449cdf7" name="Changes" comment="v1.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,11 +50,15 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2y2j9juWGFRgzxSwLhJ3OGfh9ai" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -198,7 +200,7 @@
       <workItem from="1749371592033" duration="352000" />
       <workItem from="1749374385164" duration="2655000" />
       <workItem from="1749378868097" duration="10249000" />
-      <workItem from="1749403659132" duration="1796000" />
+      <workItem from="1749403659132" duration="2105000" />
     </task>
     <task id="LOCAL-00001" summary="v1">
       <created>1749054047637</created>
@@ -254,6 +256,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="v1" />
     <MESSAGE value="v1.1" />
     <MESSAGE value="v1.3" />
