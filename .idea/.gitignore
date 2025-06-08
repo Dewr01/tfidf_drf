@@ -9,10 +9,14 @@
 # IntellijIdea files
 *.iml
 /.idea/
+.idea
 *__pycache__
 *sqlite3
-*env
+.env
 /inspectionProfiles/
+inspectionProfiles
 *.env
 /static/
+static
 /staticfiles/
+staticfiles
