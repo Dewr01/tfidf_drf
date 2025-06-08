@@ -54,9 +54,6 @@ def _prepare_response(document, results):
     })
 
 
-
-
-
 def _perform_tfidf_analysis(document, content):
     """Выполнение TF-IDF анализа и сохранение результатов"""
     corpus = _load_corpus()
