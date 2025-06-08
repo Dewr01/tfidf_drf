@@ -1,0 +1,21 @@
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+/* Анимации */
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Кастомные стили для карточек */
+.card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card-title {
+    color: #2c3e50;
+}
