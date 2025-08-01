@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a659a76-ad6a-41c2-b877-0312a449cdf7" name="Changes" comment="v1.3" />
+    <list default="true" id="3a659a76-ad6a-41c2-b877-0312a449cdf7" name="Changes" comment="v1.3">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analyzer/docs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analyzer/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +50,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/analyzer/serializers.py" root0="SKIP_INSPECTION" />
   </component>
@@ -58,13 +73,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -75,7 +87,7 @@
       <recent name="F:\tfidf_drf\templates\analyzer" />
     </key>
   </component>
-  <component name="RunManager" selected="Django Server.tfidf_drf">
+  <component name="RunManager" selected="JavaScript Debug.main.html">
     <configuration name="Test: tfidf_drf" type="DjangoTestsConfigurationType" temporary="true">
       <module name="tfidf_drf" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -94,6 +106,9 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/tfidf_drf/analyzer/templates/analyzer/main.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="corpus_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -169,10 +184,11 @@
       <item itemvalue="Django tests.Test: tfidf_drf" />
       <item itemvalue="Python.corpus_loader" />
       <item itemvalue="Python.views" />
+      <item itemvalue="JavaScript Debug.main.html" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: tfidf_drf" />
+        <item itemvalue="JavaScript Debug.main.html" />
         <item itemvalue="Python.corpus_loader" />
         <item itemvalue="Python.views" />
       </list>
@@ -200,7 +216,9 @@
       <workItem from="1749371592033" duration="352000" />
       <workItem from="1749374385164" duration="2655000" />
       <workItem from="1749378868097" duration="10249000" />
-      <workItem from="1749403659132" duration="2105000" />
+      <workItem from="1749403659132" duration="2273000" />
+      <workItem from="1749472871084" duration="2926000" />
+      <workItem from="1754024773844" duration="4358000" />
     </task>
     <task id="LOCAL-00001" summary="v1">
       <created>1749054047637</created>
